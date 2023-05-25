@@ -1,0 +1,4 @@
+baseURL = 'https://www.alexwp.net/'
+languageCode = 'en-gb'
+title = 'alexwp.net | blog'
+theme = 'ananke'
