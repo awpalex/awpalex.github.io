@@ -1,7 +1,6 @@
 ---
 title: "Post1"
 date: 2023-05-25T10:51:45+01:00
-draft: true
 ---
 
 ## Introduction
