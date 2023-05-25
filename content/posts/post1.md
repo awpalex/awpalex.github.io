@@ -1,10 +1,7 @@
 ---
-title: "Post1"
+title: "SSH Login Notifications with Discord Webhooks"
 date: 2023-05-25T10:51:45+01:00
+draft: true
 ---
 
-## Introduction
 
-This is **bold** text, and this is *emphasized* text.
-
-Visit the [Hugo](https://gohugo.io) website!
