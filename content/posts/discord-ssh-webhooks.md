@@ -2,6 +2,7 @@
 title: "SSH Login Notifications with Discord Webhooks"
 date: 2023-05-25T10:51:45+01:00
 tags: ["homelab", "cybersecurity"]
+featured_image: "images/discord.png"
 ---
 
 A while ago I stumbled upon a great article by Alex Henderson [here](https://blog.alexsguardian.net/posts/2022/07/02/LoggingSSHtoDiscord/) about using Discord as a platform to receive notifications on SSH login activity. This was incredibly useful in a blue team CTF I took part in a few months ago, as it allowed us real-time notifications of the red team's activity on our systems. This allowed us to respond to incidents incredibly quickly.
