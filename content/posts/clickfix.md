@@ -21,15 +21,15 @@ In the meantime, the website has covertly copied the following to the clipboard:
 
 Breaking down the above command, we see the following:
 
-`poWERshELL` - this opens PowerShell and has varied capitalisation as a basic means of obfuscation, although most people will see this as a sign that something is surely malicious. This may evade simple string-based detection.
+ - `poWERshELL` - this opens PowerShell and has varied capitalisation as a basic means of obfuscation, although most people will see this as a sign that something is surely malicious. This may evade simple string-based detection.
 
-`-W -h` - this is short for '-WindowStyle hidden' and makes the PowerShell prompt run in the background, out of sight of the user.
+ - `-W -h` - this is short for '-WindowStyle hidden' and makes the PowerShell prompt run in the background, out of sight of the user.
 
-`iex` is an alias for the 'Invoke-Expression' cmdlet, which runs the following string as a command.
+ - `iex` is an alias for the 'Invoke-Expression' cmdlet, which runs the following string as a command.
 
-`iwr ().Content` is an alas for 'Invoke-WebRequest', which makes a web request to the URL, and returns the content.
+ - `iwr ().Content` is an alas for 'Invoke-WebRequest', which makes a web request to the URL, and returns the content.
 
-`-split '[#@*]+' -join ''` splits the URL on '#@*' and joins it back together with '', effectively removing those characters.
+ - `-split '[#@*]+' -join ''` splits the URL on '#@*' and joins it back together with '', effectively removing those characters.
 
 Many of the examples I have observed are appended with some kind of legitimate-looking verification message, such as `✅ "I am not a robot - reCAPTCHA Verification ID: 3366"` but it seems the threat actors forgot to add this to the command in this case. This exploits the small text input in the run dialog box, as the malicious command is hidden behind this string, so the user does not realise they are running PowerShell.
 
@@ -45,17 +45,17 @@ The script is quite obfuscated, so lets change the variable names to make it eas
 
 ![](/images/deobfuscated.png)
 
-The script sets the `ErrorActionPreference` to stop, as it does not want to prompt the user with `Error` and `SilentlyContinue` is not useful as if any commands error the next ones will fail anyway.
+ - The script sets the `ErrorActionPreference` to stop, as it does not want to prompt the user with `Error` and `SilentlyContinue` is not useful as if any commands error the next ones will fail anyway.
 
-It then creates a variable, sets it to 123, then adds 1 to it. This serves no purpose in the script other than to obfuscate it. 
+ - It then creates a variable, sets it to 123, then adds 1 to it. This serves no purpose in the script other than to obfuscate it. 
 
-A variable is then set to a file path created by appending 'i0u34y3H' to the user's AppData location. The directory is then created, and a file path is stored equal to the user's AppData folder + "6aRMjduC.zip"
+ - A variable is then set to a file path created by appending 'i0u34y3H' to the user's AppData location. The directory is then created, and a file path is stored equal to the user's AppData folder + "6aRMjduC.zip"
 
-Two arrays of decimal numbers are set, which are then merged and decoded into UTF8, creating a Base64 string.
+ - Two arrays of decimal numbers are set, which are then merged and decoded into UTF8, creating a Base64 string.
 
-The Base64 string is then decoded and written to the file '6aRMjduC.zip', which is then unzipped into the 'i0u34y3H' directory, creating the file 'PEGKWKTU.exe'.
+ - The Base64 string is then decoded and written to the file '6aRMjduC.zip', which is then unzipped into the 'i0u34y3H' directory, creating the file 'PEGKWKTU.exe'.
 
-The zip file is then deleted, and the 'PEGKWKTU.exe' program is executed.
+ - The zip file is then deleted, and the 'PEGKWKTU.exe' program is executed.
 
 PEGKWKTU.exe has a SHA-256 hash of `f6905436faba35169ba7ebe6313b800828635c358429591d3670a80e80b803ec`, which [VirusTotal](https://www.virustotal.com/gui/file/f6905436faba35169ba7ebe6313b800828635c358429591d3670a80e80b803ec/detection) indicates as suspicious, matching multiple indicators for credential stealing trojans.
 
