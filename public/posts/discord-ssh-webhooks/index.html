@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>SSH Login Notifications with Discord Webhooks | AWP | cybersecurity blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="A while ago I stumbled upon a great article by Alex Henderson here about using Discord as a platform to receive notifications on SSH login activity. This was incredibly useful in a blue team CTF I took part in a few months ago, as it gave us real-time notifications of the red team&rsquo;s activity on our systems. This allowed us to respond to incidents quickly.
+One issue we did face in the competition when using this method was that implementing it on the dozens of machines under our control took a long time, so during the competition I threw together a bash script that would perform all the necessary steps to get this working on a system. This script was however very quick &amp; dirty and not worthy of being shared, but I thought I should create a better version after the competition ended.">
+    <meta name="generator" content="Hugo 0.146.5">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+    <link rel="canonical" href="//localhost:1313/posts/discord-ssh-webhooks/">
+    
+    
+    <meta property="og:url" content="//localhost:1313/posts/discord-ssh-webhooks/">
+  <meta property="og:site_name" content="AWP | cybersecurity blog">
+  <meta property="og:title" content="SSH Login Notifications with Discord Webhooks">
+  <meta property="og:description" content="A while ago I stumbled upon a great article by Alex Henderson here about using Discord as a platform to receive notifications on SSH login activity. This was incredibly useful in a blue team CTF I took part in a few months ago, as it gave us real-time notifications of the red team’s activity on our systems. This allowed us to respond to incidents quickly. One issue we did face in the competition when using this method was that implementing it on the dozens of machines under our control took a long time, so during the competition I threw together a bash script that would perform all the necessary steps to get this working on a system. This script was however very quick &amp; dirty and not worthy of being shared, but I thought I should create a better version after the competition ended.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-05-25T10:51:45+01:00">
+    <meta property="article:modified_time" content="2023-05-25T10:51:45+01:00">
+    <meta property="article:tag" content="Homelab">
+    <meta property="article:tag" content="Cybersecurity">
+
+  <meta itemprop="name" content="SSH Login Notifications with Discord Webhooks">
+  <meta itemprop="description" content="A while ago I stumbled upon a great article by Alex Henderson here about using Discord as a platform to receive notifications on SSH login activity. This was incredibly useful in a blue team CTF I took part in a few months ago, as it gave us real-time notifications of the red team’s activity on our systems. This allowed us to respond to incidents quickly. One issue we did face in the competition when using this method was that implementing it on the dozens of machines under our control took a long time, so during the competition I threw together a bash script that would perform all the necessary steps to get this working on a system. This script was however very quick &amp; dirty and not worthy of being shared, but I thought I should create a better version after the competition ended.">
+  <meta itemprop="datePublished" content="2023-05-25T10:51:45+01:00">
+  <meta itemprop="dateModified" content="2023-05-25T10:51:45+01:00">
+  <meta itemprop="wordCount" content="299">
+  <meta itemprop="keywords" content="Homelab,Cybersecurity">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SSH Login Notifications with Discord Webhooks">
+  <meta name="twitter:description" content="A while ago I stumbled upon a great article by Alex Henderson here about using Discord as a platform to receive notifications on SSH login activity. This was incredibly useful in a blue team CTF I took part in a few months ago, as it gave us real-time notifications of the red team’s activity on our systems. This allowed us to respond to incidents quickly. One issue we did face in the competition when using this method was that implementing it on the dozens of machines under our control took a long time, so during the competition I threw together a bash script that would perform all the necessary steps to get this working on a system. This script was however very quick &amp; dirty and not worthy of being shared, but I thought I should create a better version after the competition ended.">
+
+    
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('//localhost:1313/images/discord.jpeg');">
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        AWP | cybersecurity blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">SSH Login Notifications with Discord Webhooks</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  
+  <article class="flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">SSH Login Notifications with Discord Webhooks</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-25T10:51:45+01:00">May 25, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>A while ago I stumbled upon a great article by Alex Henderson <a href="https://blog.alexsguardian.net/posts/2022/07/02/LoggingSSHtoDiscord/">here</a> about using Discord as a platform to receive notifications on SSH login activity. This was incredibly useful in a blue team CTF I took part in a few months ago, as it gave us real-time notifications of the red team&rsquo;s activity on our systems. This allowed us to respond to incidents quickly.
+One issue we did face in the competition when using this method was that implementing it on the dozens of machines under our control took a long time, so during the competition I threw together a bash script that would perform all the necessary steps to get this working on a system. This script was however very quick &amp; dirty and not worthy of being shared, but I thought I should create a better version after the competition ended.</p>
+<p>I also found this idea very applicable to my own situation, as someone that runs a homelab and also uses some <a href="https://www.oracle.com/cloud/free/">Oracle Cloud</a> servers having this implemented is very reassuring. After putting this on some of my systems however, I found that some flavours of Linux did not provide full functionality, namely that my machines running
+<a href="https://www.oracle.com/linux/">Oracle Linux</a> did not send notifications properly on logout. After investigation, I found that <a href="https://www.redhat.com/en/topics/linux/what-is-selinux">SELinux</a> was causing the issue and upon reviewing the logs, running <code>sudo setsebool -P nis_enabled 1</code> fixed the problem. This command enables the Network Information Service (NIS).</p>
+<p>In the end I refined the script to include some error handling, as well as automatically detecting and fixing the above SELinux issue. The script can be found on my GitHub <a href="https://github.com/awpalex/discord-ssh-webhooks">here</a>. I will be making more improvements to it in the future, if you find any issues or make any improvements feel free to create a PR.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/homelab/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Homelab</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/cybersecurity/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cybersecurity</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="//localhost:1313/" >
+    &copy;  AWP | cybersecurity blog 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

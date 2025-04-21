@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on AWP | cybersecurity blog</title>
+    <link>//localhost:1313/posts/</link>
+    <description>Recent content in Posts on AWP | cybersecurity blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 20 Apr 2025 11:52:45 +0100</lastBuildDate>
+    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Investigating ClickFix: How Hackers Use Captchas to Steal Passwords</title>
+      <link>//localhost:1313/posts/clickfix/</link>
+      <pubDate>Sun, 20 Apr 2025 11:52:45 +0100</pubDate>
+      <guid>//localhost:1313/posts/clickfix/</guid>
+      <description>&lt;p&gt;ClickFix is a method of social engineering that has been becoming more popular recently as a method to distribute malware. It is especially interesting as instead of relying on any software exploit for stage four of the &lt;a href=&#34;https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html?ref=hailstormsec.com&#34;&gt;Cyber Kill Chain&lt;/a&gt;, it instead exploits the user through social engineering.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s take a look at an example from the site https://vtmarkets[.]top/:&#xA;&lt;img src=&#34;//localhost:1313/images/site.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;As we can see, the site presents us with a captcha button to press, something that most people interact with mindlessly every day.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSH Login Notifications with Discord Webhooks</title>
+      <link>//localhost:1313/posts/discord-ssh-webhooks/</link>
+      <pubDate>Thu, 25 May 2023 10:51:45 +0100</pubDate>
+      <guid>//localhost:1313/posts/discord-ssh-webhooks/</guid>
+      <description>&lt;p&gt;A while ago I stumbled upon a great article by Alex Henderson &lt;a href=&#34;https://blog.alexsguardian.net/posts/2022/07/02/LoggingSSHtoDiscord/&#34;&gt;here&lt;/a&gt; about using Discord as a platform to receive notifications on SSH login activity. This was incredibly useful in a blue team CTF I took part in a few months ago, as it gave us real-time notifications of the red team&amp;rsquo;s activity on our systems. This allowed us to respond to incidents quickly.&#xA;One issue we did face in the competition when using this method was that implementing it on the dozens of machines under our control took a long time, so during the competition I threw together a bash script that would perform all the necessary steps to get this working on a system. This script was however very quick &amp;amp; dirty and not worthy of being shared, but I thought I should create a better version after the competition ended.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

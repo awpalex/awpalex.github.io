@@ -1,0 +1,11 @@
+/* custom.css */
+.post-banner {
+    background-color: #f0f0f0;  /* Change background color */
+  }
+  
+  .custom-header-banner {
+    font-size: 2rem;
+    color: #333;
+    padding: 20px;
+  }
+  

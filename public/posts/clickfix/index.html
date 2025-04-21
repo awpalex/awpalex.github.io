@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Investigating ClickFix: How Hackers Use Captchas to Steal Passwords | AWP | cybersecurity blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="ClickFix is a method of social engineering that has been becoming more popular recently as a method to distribute malware. It is especially interesting as instead of relying on any software exploit for stage four of the Cyber Kill Chain, it instead exploits the user through social engineering.
+Let&rsquo;s take a look at an example from the site https://vtmarkets[.]top/:
+
+As we can see, the site presents us with a captcha button to press, something that most people interact with mindlessly every day.">
+    <meta name="generator" content="Hugo 0.146.5">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+    <link rel="canonical" href="//localhost:1313/posts/clickfix/">
+    
+    
+    <meta property="og:url" content="//localhost:1313/posts/clickfix/">
+  <meta property="og:site_name" content="AWP | cybersecurity blog">
+  <meta property="og:title" content="Investigating ClickFix: How Hackers Use Captchas to Steal Passwords">
+  <meta property="og:description" content="ClickFix is a method of social engineering that has been becoming more popular recently as a method to distribute malware. It is especially interesting as instead of relying on any software exploit for stage four of the Cyber Kill Chain, it instead exploits the user through social engineering.
+Let’s take a look at an example from the site https://vtmarkets[.]top/: As we can see, the site presents us with a captcha button to press, something that most people interact with mindlessly every day.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-20T11:52:45+01:00">
+    <meta property="article:modified_time" content="2025-04-20T11:52:45+01:00">
+    <meta property="article:tag" content="Malware">
+    <meta property="article:tag" content="Cybersecurity">
+
+  <meta itemprop="name" content="Investigating ClickFix: How Hackers Use Captchas to Steal Passwords">
+  <meta itemprop="description" content="ClickFix is a method of social engineering that has been becoming more popular recently as a method to distribute malware. It is especially interesting as instead of relying on any software exploit for stage four of the Cyber Kill Chain, it instead exploits the user through social engineering.
+Let’s take a look at an example from the site https://vtmarkets[.]top/: As we can see, the site presents us with a captcha button to press, something that most people interact with mindlessly every day.">
+  <meta itemprop="datePublished" content="2025-04-20T11:52:45+01:00">
+  <meta itemprop="dateModified" content="2025-04-20T11:52:45+01:00">
+  <meta itemprop="wordCount" content="1128">
+  <meta itemprop="keywords" content="Malware,Cybersecurity">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Investigating ClickFix: How Hackers Use Captchas to Steal Passwords">
+  <meta name="twitter:description" content="ClickFix is a method of social engineering that has been becoming more popular recently as a method to distribute malware. It is especially interesting as instead of relying on any software exploit for stage four of the Cyber Kill Chain, it instead exploits the user through social engineering.
+Let’s take a look at an example from the site https://vtmarkets[.]top/: As we can see, the site presents us with a captcha button to press, something that most people interact with mindlessly every day.">
+
+    
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('//localhost:1313/images/clickfix.jpg');">
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        AWP | cybersecurity blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Investigating ClickFix: How Hackers Use Captchas to Steal Passwords</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  
+  <article class="flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Investigating ClickFix: How Hackers Use Captchas to Steal Passwords</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-04-20T11:52:45+01:00">April 20, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>ClickFix is a method of social engineering that has been becoming more popular recently as a method to distribute malware. It is especially interesting as instead of relying on any software exploit for stage four of the <a href="https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html?ref=hailstormsec.com">Cyber Kill Chain</a>, it instead exploits the user through social engineering.</p>
+<p>Let&rsquo;s take a look at an example from the site https://vtmarkets[.]top/:
+<img src="/images/site.png" alt=""></p>
+<p>As we can see, the site presents us with a captcha button to press, something that most people interact with mindlessly every day.</p>
+<p><img src="/images/site2.png" alt=""></p>
+<p>Upon pressing the checkbox, the user is directed to press Win + R, paste whatever is in their clipboard into the dialog box, and then press Enter to &ldquo;verify&rdquo; themselves. The dialog box doesn&rsquo;t explicitly tell the user what they are doing (i.e. pasting) in the hopes that they follow the given instructions without too much thought.</p>
+<p>The website has covertly copied the following to the clipboard:
+<img src="/images/cmd1.png" alt=""></p>
+<p>Breaking down the above command, we see the following:</p>
+<p><code>poWERshELL</code> - this opens PowerShell and has varied capitalisation as a basic means of obfuscation, although most people will see this as a sign that something is surely malicious. This may evade simple string-based detection.</p>
+<p><code>-W -h</code> - this is short for &lsquo;-WindowStyle hidden&rsquo; and makes the PowerShell prompt run in the background, out of sight of the user.</p>
+<p><code>iex</code> is an alias for the &lsquo;Invoke-Expression&rsquo; cmdlet, which runs the following string as a command.</p>
+<p><code>iwr ().Content</code> is an alas for &lsquo;Invoke-WebRequest&rsquo;, which makes a web request to the URL, and returns the content.</p>
+<p><code>-split '[#@*]+' -join ''</code> splits the URL on &lsquo;#@*&rsquo; and joins it back together with &lsquo;&rsquo;, effectively removing those characters.</p>
+<p>Many of the examples I have observed are appended with some kind of legitimate-looking verification message, such as <code>✅ &quot;I am not a robot - reCAPTCHA Verification ID: 3366&quot;</code> but it seems the threat actors forgot to add this to the command in this case. This exploits the small text input in the run dialog box, as the malicious command is hidden behind this string, so the user does not realise they are running powershell.</p>
+<p><img src="/images/run.png" alt=""></p>
+<p>Looking at the IP the command connects to, we can see the IP 84.200.154[.]155 is registered to firstcolo GmbH in Germany. This is registered as a Data Centre IP, and multiple vendors on VirusTotal have marked this as a malicious IP.</p>
+<p>The malicious txt file that the command downloads is an obfuscated PowerShell script.</p>
+<p><img src="/images/original.png" alt=""></p>
+<p>The script is quite obfuscated, so lets change the variable names to make it easier to understand.</p>
+<p><img src="/images/deobfuscated.png" alt=""></p>
+<p>The script sets the <code>ErrorActionPreference</code> to stop, as it does not want to prompt the user with <code>Error</code> and <code>SilentlyContinue</code> is not useful as if any commands error the next ones will fail anyway.</p>
+<p>It then creates a variable, sets it to 123, then adds 1 to it. This serves no purpose in the script other than to obfuscate it.</p>
+<p>A variable is then set to a filepath created by appending &lsquo;i0u34y3H&rsquo; to the user&rsquo;s AppData location. The directory is then created, and a file path is stored equal to the user&rsquo;s AppData folder + &ldquo;6aRMjduC.zip&rdquo;</p>
+<p>Two arrays of decimal numbers are set, which are then merged and decoded into UTF8, creating a Base64 string.</p>
+<p>The Base64 string is then decoded and written to the file 6aRMjduC.zip, which is then unzipped into the &lsquo;i0u34y3H&rsquo; directory, creating the file &lsquo;PEGKWKTU.exe&rsquo;.</p>
+<p>The zip file is then deleted, and the &lsquo;PEGKWKTU.exe&rsquo; program is executed.</p>
+<p>PEGKWKTU.exe has a SHA-256 hash of <code>f6905436faba35169ba7ebe6313b800828635c358429591d3670a80e80b803ec</code>, which <a href="https://www.virustotal.com/gui/file/f6905436faba35169ba7ebe6313b800828635c358429591d3670a80e80b803ec/detection">VirusTotal</a> indicates as suspicious, matching multiple indicators for credential stealing trojans.</p>
+<p>If we take a look on <a href="https://tria.ge/250326-c3y58awvgw">Tria.ge</a>, a very useful sandbox tool by RecordedFuture, we can see some of the details of the execution. One of the files dropped by the executable is &lsquo;CheckForUpdates.exe&rsquo; which is dropped in the Temp folder. Checking the hash on <a href="https://www.virustotal.com/gui/file/37189ea8bf671adc30ea72ac534ab1a39ed0bf02da6f0a1e11fdb21fddd0c24d/details">VT</a> again we see that it is signed by Neowise Software, with the description &ldquo;Updates utility for RoboTask&rdquo;. <a href="https://robotask.com/">RoboTask</a> is a &ldquo;task automation software that can easily automate any series of tasks without writing code&rdquo; - this may be used by the threat actor to perform post-exploit activity.</p>
+<p>There are a number of other suspicious files dropped in the &lsquo;Temp&rsquo; folder on the host, including &rsquo;nephrotomy.doc&rsquo; and &lsquo;vcl280.bpl&rsquo;. This .bpl file is actually a .dll, with the hash &ldquo;32a674470c8583e8a8f8be1c73deb2c4&rdquo; which <a href="https://www.virustotal.com/gui/file/9df3a2a356dabc5c9a9c8e94f2ba36438f1280155c0902cbc43dcdc853f85913">VirusTotal</a> shows is related to LummaStealer - this is a credential-stealing virus that targets passwords and crypto wallets and has been observed using DNS to exfiltrate data.</p>
+<p>In terms of prevention, there are a number of things an organisation can do to protect itself against this kind of threat. Let&rsquo;s take a look at some options and map them to the Cyber Kill Chain for clarity:</p>
+<ol start="3">
+<li>Delivery</li>
+</ol>
+<ul>
+<li>Email Filtering: The fake Captcha pages are often distributed via phishing attacks, often masquerading as legitimate companies such as <a href="https://thehackernews.com/2025/03/microsoft-warns-of-clickfix-phishing.html">Booking dot com</a>. Email filtering tools can detect suspicious emails and block them from ever reaching the user&rsquo;s inbox, preventing the attack early in the chain.</li>
+<li>Network Protection: A tool such as Microsoft&rsquo;s &lsquo;<a href="https://learn.microsoft.com/en-us/defender-endpoint/web-protection-overview">Web Protection</a>&rsquo; can be implemented to block access to malicious websites, preventing the user from interacting with them in the first place.</li>
+</ul>
+<ol start="4">
+<li>Exploitation</li>
+</ol>
+<ul>
+<li>Security Awareness Training: Users should be educated on common threats, as the human factor is one of the most commonly exploited aspects of an organisation&rsquo;s security. Heightened security awareness may decrease the likelihood of users falling for these attacks.</li>
+<li>Disabling PowerShell via Group Policy: Following a zero-trust model and blocking PowerShell for users that do not require it would stop this attack, as the user would not be able to run the malicious commands.</li>
+</ul>
+<ol start="5">
+<li>Installation</li>
+</ol>
+<ul>
+<li>EDR/XDR: Use of an EDR/XDR tool may prevent the malware from being executed, either by detecting the hashes as known-bad programs or by behaviour-based detections.</li>
+</ul>
+<ol start="6">
+<li>Command &amp; Control</li>
+</ol>
+<ul>
+<li>Network Protection: This can block requests by the host to known malicious websites, and provide alerts to the organisation&rsquo;s security team of malicious activity, allowing them to response to the attack.</li>
+<li>Next-Gen Firewalls (NGFW): NGFWs can block suspicious network traffic as determined through a number of collected indicators. This may be able to prevent the attacker from being able to successfully exfiltrate data.</li>
+</ul>
+<ol start="7">
+<li>Actions on Objectives</li>
+</ol>
+<ul>
+<li>Password Policy: Implementing policy within your organisation to forbid the storage of passwords in plaintext can limit the impact of credential-stealers, as there will be less to steal. Ensure users are provided with a password manager and are educated to use different passwords for different services - this will further limit impact if some of their passwords are stolen, as the attacker will only be able to access a subset of their accounts.</li>
+</ul>
+<p>Of course a defense-in-depth strategy is key to preventing attacks, as no security control is fool-proof, so it is best to layer them to reduce the risk of an attack succeeding.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/malware/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Malware</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/cybersecurity/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cybersecurity</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/discord-ssh-webhooks/">SSH Login Notifications with Discord Webhooks</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="//localhost:1313/" >
+    &copy;  AWP | cybersecurity blog 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
