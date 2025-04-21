@@ -35,7 +35,7 @@ Many of the examples I have observed are appended with some kind of legitimate-l
 
 ![](/images/run.png)
 
-Looking at the IP the command connects to, we can see the IP 84.200.154[.]155 is registered to firstcolo GmbH in Germany. This is registered as a Data Centre IP, and multiple vendors on VirusTotal have marked this as a malicious IP.
+Looking at the IP the command connects to, we can see the IP 84.200.154[.]155 is registered to firstcolo GmbH in Germany. This is registered as a Data Centre IP, and multiple vendors on VirusTotal have marked this as a malicious IP. Some hosting providers are much slower than others when it comes to responding to abuse reports - and threat actors know this. Even if you can successfully get a malicious site taken down it is trivial for an attacker to set up another.
 
 The malicious .txt file that the command downloads is an obfuscated PowerShell script.
 
